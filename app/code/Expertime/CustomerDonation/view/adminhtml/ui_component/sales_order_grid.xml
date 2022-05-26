@@ -4,14 +4,7 @@
         <column name="donated">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <!--
-                    <item name="filter" xsi:type="string">decimal</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="filter" xsi:type="string">select</item>
-                    -->
                     <item name="label" xsi:type="string" translate="true">Donated ?</item>
-
                 </item>
             </argument>
             <settings>
@@ -23,10 +16,6 @@
         <column name="donation_amount">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <!--
-                    <item name="filter" xsi:type="string">decimal</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
-                    -->
                     <item name="filter" xsi:type="string">textRange</item>
                     <item name="label" xsi:type="string" translate="true">Donation Total Amount</item>
                 </item>
