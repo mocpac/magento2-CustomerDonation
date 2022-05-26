@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Plugins -->
+    <!-- Adds additional data to the orders grid collection -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <plugin name="expertime_customer_donation_plugin_add_data_to_orders_grid" type="Expertime\CustomerDonation\Plugin\AddDataToOrdersGrid" sortOrder="10" disabled="false"/>
+    </type>
+</config>

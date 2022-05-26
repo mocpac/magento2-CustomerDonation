@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+
+/**  @var $block \Expertime\CustomerDonation\Block\Cart\Donation */
+$hasDonated = $block->hasDonated();
+?>
+<?php if ($block->isVisible()) : ?>
+    <form action="<?= $block->escapeUrl($block->getUrl('donation/cart/add')) ?>" method="post" id="form-donation" class="form form-cart">
+        <?= $block->getBlockHtml('formkey') ?>
+        <table id="donation-table" class="cart items data table" data-mage-init='{"shoppingCart":{"emptyCartButton": ".action.clear",
+               "updateCartActionContainer": "#update_cart_action_container"}}'>
+            <caption class="table-caption"><?= $block->escapeHtml(__('Donation Items')) ?></caption>
+            <tr>
+                <td class="col img" scope="col"><img src="<?= $block->escapeHtml($block->getProductImageUrl()) ?>" /></td>
+                <td class="col item" scope="col"><span><?= $block->escapeHtml(__($block->getTitle())) ?></span></td>
+                <td class="col desc" scope="col"><span><?= __($block->getDescription()) ?></span></td>
+                <td class="col amt" scope="col"><span>
+                        <?php if (!$hasDonated) : ?>
+                            <input id="donation-amt" name="donation-amt" value="<?= $block->escapeHtml($block->getAmount()) ?>" type="number" size="4" step="any" title="Amount" class="input-text qty" data-validate="{required:true,'validate-greater-than-zero':true}" data-role="donation-amt">
+                        <?php endif ?>
+                    </span></td>
+                <!-- action button -->
+                <td class="col" scope="col">
+                    <?php if (!$hasDonated) : ?>
+                        <button type="submit" name="update_donation" value="update_donation" title="<?= $block->escapeHtml(__('Donate')) ?>" class="action update">
+                            <span><?= $block->escapeHtml(__('Donate')) ?></span>
+                        </button>
+                    <?php else : ?>
+                        <input type="hidden" value="1" id="donation-remove" name="remove" />
+                        <button type="submit" name="update_donation" value="update_donation" title="<?= $block->escapeHtml(__('Cancel my donation')) ?>" class="action update">
+                            <span><?= $block->escapeHtml(__('Cancel my donation')) ?></span>
+                        </button>
+                    <?php endif ?>
+                </td>
+            </tr>
+        </table>
+    </form>
+<?php endif ?>

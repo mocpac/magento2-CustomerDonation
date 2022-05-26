@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="expertime" translate="label" sortOrder="200">
+            <label><![CDATA[Expertime]]></label>
+        </tab>
+        <section id="expertime_donation" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Customer Donation</label>
+            <tab>expertime</tab>
+            <resource>Expertime_CustomerDonation::config_extension</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sku" translate="label comment" sortOrder="2" type="text" showInStore="1" showInDefault="1">
+                    <label>SKU</label>
+                </field>
+                <field id="title" translate="label comment" sortOrder="3" type="text" showInStore="1" showInDefault="1">
+                    <label>Title</label>
+                </field>
+                <field id="desc" translate="label comment" sortOrder="4" type="editor" showInStore="1" showInDefault="1">
+                    <label>Description</label>
+                    <!-- WYSIWYG editor -->
+                    <frontend_model>Expertime\CustomerDonation\Block\Adminhtml\System\Config\Editor</frontend_model>
+                </field>
+                <field id="amount" translate="label" type="text" sortOrder="5" showInDefault="1" showInStore="1">
+                    <label>Amount</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

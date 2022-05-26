@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.order.actions">
+            <block class="Expertime\CustomerDonation\Block\Cart\Donation" name="checkout.cart.customblock" template="Expertime_CustomerDonation::donate_block.phtml">
+            </block>
+        </referenceContainer>
+    </body>
+</page>
